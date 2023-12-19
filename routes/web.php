@@ -14,5 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
 });
+
+Route::get('/about/{name}',function($name){
+    //echo $name;
+    return view('about',['name'=>$name]);
+});
+
+
+/*
+Route::get('/about/{name}', function($name) {
+    //echo $name;
+    return view('about', ['name' => $name]);
+});*/
+Route::view('users','users');
