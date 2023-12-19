@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,4 @@ Route::get('/about/{name}', function($name) {
     //echo $name;
     return view('about', ['name' => $name]);
 });*/
-Route::view('users','users');
+Route::get('users',[UserController::class,'viewLoad']);
