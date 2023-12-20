@@ -30,3 +30,4 @@ Route::get('/about/{name}', function($name) {
     return view('about', ['name' => $name]);
 });*/
 Route::get('users',[UserController::class,'viewLoad']);
+Route::post('users',[UserController::class,'getData']);
