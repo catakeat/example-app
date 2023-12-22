@@ -31,6 +31,9 @@ Route::get('/about/{name}', function($name) {
 });*/
 Route::get('users',[UserController::class,'viewLoad']);
 Route::post('users',[UserController::class,'getData']);
+Route::get('/getusers',[UserController::class,'index']);
+Route::get('/getusers_using_model',[UserController::class,'index1']);
+
 Route::view('noaccess','noaccess');
 
 Route::group(['middleware'=>['protectedPage']],function(){

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -16,5 +19,14 @@ class UserController extends Controller
     {
       //return  $req->input();
         $data =  $req->validate(['username'=>'required','userpassword'=>'required']);
+    }
+    function index(){
+        return DB::select("select * from users");
+    }
+    function index1(){
+        return User::all();
+    }
+    function getRemote(){
+          return Http::get("https:\\regres.in\api\users?page=1");
     }
 }
