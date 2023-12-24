@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,20 @@ Route::group(['middleware'=>['protectedPage']],function(){
     Route::view('/test','test2');
 });
 
+Route::view("login","login");
+Route::post('user',[UserAuth::class,'userLogin']);
+Route::view('profile','profile');
+Route::get('/logout',function(){
+    if(session()->has('user')){
+        session()->pull('user');
+        echo "in pull";
+    }
+    else{
+        dd(session()->all());
+       // return "in else";
+    }
+    redirect('login');
+});
+
+Route::view('fileupload','fileupload');
+Route::post('upload',[UploadController::class,'uploadFile']);
