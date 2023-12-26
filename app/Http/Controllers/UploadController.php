@@ -23,7 +23,7 @@ class UploadController extends Controller
             $path = $file->storeAs('uploads', $filename, 'public');
 
             // Return a response, or redirect
-            return back()->with('success', 'File uploaded successfully!');
+             
         }
 
         return back()->with('error', 'No file selected!');

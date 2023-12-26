@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\CrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,9 @@ Route::get('/logout',function(){
 
 Route::view('fileupload','fileupload');
 Route::post('upload',[UploadController::class,'uploadFile']);
+Route::view('add','members');
+Route::post('add',[CrudController::class,'addMember']);
+Route::post("/delete/{id}",[CrudController::class,"delete"]);
+Route::get('/update',function(){
+  return view('update');
+});
