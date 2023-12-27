@@ -62,7 +62,8 @@ Route::view('fileupload','fileupload');
 Route::post('upload',[UploadController::class,'uploadFile']);
 Route::view('add','members');
 Route::post('add',[CrudController::class,'addMember']);
-Route::post("/delete/{id}",[CrudController::class,"delete"]);
-Route::get('/update',function(){
-  return view('update');
-});
+Route::get("/delete/{id}",[CrudController::class,"delete"]);
+Route::get('/edit/{id}',[CrudController::class,'edit']);
+Route::post('update',[CrudController::class,'update']);
+//ROUte mode binding
+Route::get('test1/{membr}',[CrudController::class, 'testRouteModelBinding']);

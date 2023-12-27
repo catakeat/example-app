@@ -4,7 +4,7 @@
 <body>
 
 
-<form method="POST"  action="add">
+<form method="POST"  action="/add">
     @csrf
 <input type="text"  name="prenume"  placehoolder="prenume">
 <input type="text"  name="nume" placeholder="nume">
@@ -30,7 +30,8 @@
     <td>{{$member->email}}</td>
     <td>
         <a href="/delete/{{$member->id}}">Sterge</a><br>
-        <a href="/update/{{$member->id}}">Update</a> 
+        <a href="/edit/{{$member->id}}">Update</a> 
+        <a href="/test1/{{$member->id}}">Test</a>
 </td>
     <td></td>
 </tr>
